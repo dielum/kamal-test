@@ -1,24 +1,49 @@
-# README
+# Project Test for Ruby 3.1.1 and Rails 7.2.0 using Bun
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the project test repository for Ruby 3.1.1 and Rails 7.2.0 with the use of Bun. This README will guide you through the prerequisites and execution steps to get your project up and running.
 
-Things you may want to cover:
+## Prerequisites
+Before you start, make sure you have the following tools installed on your system:
 
-* Ruby version
+- **Docker**: You can download and install Docker from [Docker's official website](https://www.docker.com/get-started).
+- **Foreman**: Foreman is used for process management. You can install it via a package manager like `gem`:
 
-* System dependencies
+   ```bash
+   gem install foreman
+   ```
 
-* Configuration
+## Execution
 
-* Database creation
+Follow these steps to set up and run your project:
 
-* Database initialization
+### Installation
 
-* How to run the test suite
+1. Build the Docker containers:
 
-* Services (job queues, cache servers, search engines, etc.)
+   ```bash
+   docker-compose build
+   ```
 
-* Deployment instructions
+2. Start the containers:
 
-* ...
+   ```bash
+   docker-compose up
+   ```
+
+3. Create the Rails database:
+
+   ```bash
+   docker-compose exec web bundle exec rails db:create
+   ```
+
+### Running
+
+To start your project, use Foreman with the provided Docker Procfile:
+
+```bash
+foreman start -f Procfile.docker
+```
+
+This will initiate the necessary processes to run your Ruby 3.1.1 and Rails 7.2.0 application using Bun.
+
+Feel free to reach out if you encounter any issues or have questions about this project. Happy coding!
