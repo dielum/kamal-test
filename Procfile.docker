@@ -1,0 +1,3 @@
+web: bin/dc bundle exec rails server -b 0.0.0.0
+js: bin/dc bun run build --watch
+css: bin/dc yarn build:css --watch

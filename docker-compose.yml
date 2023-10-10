@@ -1,0 +1,32 @@
+services: 
+  postgres:
+    image: postgres:13-alpine
+    env_file: .env.dev
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+    ports:
+      - "15432:5432"
+      
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: "service_started"
+    env_file: .env.dev
+    volumes:
+      - .:/rails
+      - app-storage:/rails/storage
+      - bundle:/rails/vendor/bundle
+      - node_modules:/rails/node_modules
+
+volumes:
+  postgres_data: {}
+  app-storage: {}
+  bundle: {}
+  node_modules: {}
