@@ -27,12 +27,13 @@ Follow these steps to set up and run your project:
 2. Start the containers:
 
    ```bash
-   docker-compose up
+   docker-compose up -d
    ```
 
 3. Create the Rails database:
 
    ```bash
+   docker-compose exec web bundle
    docker-compose exec web bundle exec rails db:create
    ```
 
