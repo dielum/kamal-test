@@ -84,5 +84,6 @@ test:
 production:
   <<: *default
   database: discover_production
-  username: discover
-  password: <%= ENV["DISCOVER_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>

@@ -1,4 +1,8 @@
-<h1> Hello world </h1>
+<h1 class="mb-8 text-4xl font-bold">Publicaciones</h1>
 
-<p> Testing auto reload on save</p>
-
+<% @posts.each do |post| %>
+  <div class="p-6 mb-8 bg-gray-100 rounded-lg shadow-md">
+    <h2 class="mb-4 text-2xl font-semibold"><%= post.title %></h2>
+    <p class="text-gray-700"><%= post.body %></p>
+  </div>
+<% end %>
